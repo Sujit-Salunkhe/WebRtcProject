@@ -78,6 +78,9 @@ io.on("connection", (socket) => {
     socket.to(data.answerId).emit("outgoingMessage",data.text)
   })
 
+  socket.on("typing",data =>{
+    socket.to(data.answerId).emit("typing",data.type)
+  })
   socket.on("endCall",(data) =>{
       console.log(data)
       socket.to(data.answerId).emit("endCall",data.text)
