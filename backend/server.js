@@ -39,7 +39,7 @@ io.on("connection", (socket) => {
     console.log(data,"playerName")
     socket.to(data.answerId).emit("playerName",data.playerName1)
   });
-  // Handle receiving an offer
+  
   socket.on("offer", (data) => {
     // console.log(data,"offer");
     socket.to(data.roomID).emit("offer", data);
